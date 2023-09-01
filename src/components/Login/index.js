@@ -22,7 +22,7 @@ class LoginRoute extends Component {
     errorMsg: '',
   }
 
-  getUsername = event => this.setState({userId: event.target.value})
+  getUserId = event => this.setState({userId: event.target.value})
 
   getPassword = event => this.setState({password: event.target.value})
 
@@ -76,7 +76,7 @@ class LoginRoute extends Component {
               id="userId"
               type="text"
               value={userId}
-              onChange={this.getUsername}
+              onChange={this.getUserId}
             />
             <LoginLabel htmlFor="userPassword">Password</LoginLabel>
             <LoginInput
