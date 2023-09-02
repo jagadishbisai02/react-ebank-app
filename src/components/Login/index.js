@@ -39,7 +39,7 @@ class LoginRoute extends Component {
   onSubmitLogin = async event => {
     event.preventDefault()
     const {userId, password} = this.state
-    const userDetails = {userId, password}
+    const userDetails = {user_id: userId, pin: password}
     const Url = 'https://apis.ccbp.in/ebank/login'
     const options = {
       method: 'POST',
@@ -67,7 +67,7 @@ class LoginRoute extends Component {
         <LoginCardContainer onSubmit={this.onSubmitLogin}>
           <LoginCardImage
             src="https://assets.ccbp.in/frontend/react-js/ebank-login-img.png"
-            alt="website logo"
+            alt="website login"
           />
           <LoginCard>
             <LoginHeading>Welcome Back!</LoginHeading>
@@ -78,7 +78,7 @@ class LoginRoute extends Component {
               value={userId}
               onChange={this.getUserId}
             />
-            <LoginLabel htmlFor="userPassword">Password</LoginLabel>
+            <LoginLabel htmlFor="userPassword">PIN</LoginLabel>
             <LoginInput
               id="userPassword"
               type="password"

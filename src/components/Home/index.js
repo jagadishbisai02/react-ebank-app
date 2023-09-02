@@ -1,26 +1,44 @@
 import {withRouter} from 'react-router-dom'
 import Cookies from 'js-cookie'
 
+import {
+  BankHome,
+  NavBar,
+  EbankLogo,
+  LogoutBtn,
+  CardContainer,
+  CardContent,
+  DigitalCard,
+} from './styledComponents'
+
 const HomeRoute = props => {
   const onClickLogout = () => {
     const {history} = props
     Cookies.remove('jwt_token')
-    history.replace('/login')
+    history.replace('/ebank/login')
   }
 
   return (
-    <div>
-      <div>
-        <img
+    <BankHome>
+      <NavBar>
+        <EbankLogo
           src="https://assets.ccbp.in/frontend/react-js/ebank-logo-img.png"
           alt="website logo"
         />
 
-        <button type="button" onClick={onClickLogout}>
+        <LogoutBtn type="button" onClick={onClickLogout}>
           Logout
-        </button>
-      </div>
-    </div>
+        </LogoutBtn>
+      </NavBar>
+
+      <CardContainer>
+        <CardContent>Your Flexibility, Our Excellence</CardContent>
+        <DigitalCard
+          src="https://assets.ccbp.in/frontend/react-js/ebank-digital-card-img.png"
+          alt="digital card"
+        />
+      </CardContainer>
+    </BankHome>
   )
 }
 
